@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "865855590258",
+    "project_id": "upavas-12d23",
+    "storage_bucket": "upavas-12d23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865855590258:android:68dc3e0c49273a515597eb",
+        "android_client_info": {
+          "package_name": "com.example.upvas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865855590258-oqbe6klttjnru8ku4m3dv42761mahtcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnnKH2s8b8iiGostTI4Pi3Gr5-z-1sCoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865855590258-oqbe6klttjnru8ku4m3dv42761mahtcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865855590258:android:747038ff5161a43f5597eb",
+        "android_client_info": {
+          "package_name": "com.fitfriendme.fantechlabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865855590258-oqbe6klttjnru8ku4m3dv42761mahtcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnnKH2s8b8iiGostTI4Pi3Gr5-z-1sCoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865855590258-oqbe6klttjnru8ku4m3dv42761mahtcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
