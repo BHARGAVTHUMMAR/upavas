@@ -106,7 +106,8 @@ class HomeView extends GetView<HomeController> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(
+                                right: 8.0, left: 8, bottom: 8),
                             child: Row(
                               children: [
                                 Text("Active", style: TextStyle(fontSize: 15)),
