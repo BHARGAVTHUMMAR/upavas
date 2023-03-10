@@ -136,47 +136,53 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ],
                       ),
-                      GridView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
-                            crossAxisSpacing: 5,
-                            mainAxisSpacing: 5),
-                        itemCount: controller.selectedList.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () async {
-                              controller.selectedList[index].isSelected
-                                  .toggle();
-                              await FirebaseService().updateUserDataToFireStore(
-                                  date: controller.selectedDate.value +
-                                      "_" +
-                                      controller.dropdownValue.value.toString(),
-                                  data: {
-                                    "data": controller.selectedList
-                                        .map((e) => e.toJson())
-                                        .toList()
-                                  });
-                            },
-                            child: Obx(() {
-                              return Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: (controller.selectedList[index]
-                                            .isSelected.isFalse)
-                                        ? Colors.green
-                                        : Colors.grey,
-                                  ),
-                                  child: Center(
-                                      child: Text(
-                                    index.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  )));
-                            }),
-                          );
-                        },
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: GridView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4,
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 5),
+                          itemCount: controller.selectedList.length,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () async {
+                                controller.selectedList[index].isSelected
+                                    .toggle();
+                                await FirebaseService()
+                                    .updateUserDataToFireStore(
+                                        date: controller.selectedDate.value +
+                                            "_" +
+                                            controller.dropdownValue.value
+                                                .toString(),
+                                        data: {
+                                      "data": controller.selectedList
+                                          .map((e) => e.toJson())
+                                          .toList()
+                                    });
+                              },
+                              child: Obx(() {
+                                return Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: (controller.selectedList[index]
+                                              .isSelected.isFalse)
+                                          ? Colors.green
+                                          : Colors.grey,
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                      index.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                    )));
+                              }),
+                            );
+                          },
+                        ),
                       )
                     ],
                   ),
