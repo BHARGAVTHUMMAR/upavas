@@ -9,10 +9,10 @@ class HomeController extends GetxController {
       List.generate(100, (index) => SelectedModels(isSelected: false.obs)).obs;
   RxList<SelectedModels> getDataList = RxList<SelectedModels>([]);
   RxList<String> list = <String>[
-    'Morning',
-    'Night',
+    'Savar',
+    'Sanj',
   ].obs;
-  RxString dropdownValue = "Morning".obs;
+  RxString dropdownValue = "Savar".obs;
   RxBool hasData = false.obs;
   @override
   void onInit() {
