@@ -127,6 +127,9 @@ class HomeView extends GetView<HomeController> {
                                       .length
                                       .toString(),
                                 ),
+                                SizedBox(
+                                  width: 10,
+                                ),
                               ],
                             ),
                           ),
