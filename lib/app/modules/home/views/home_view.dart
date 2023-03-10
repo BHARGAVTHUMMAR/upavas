@@ -15,6 +15,7 @@ class HomeView extends GetView<HomeController> {
             title: const Text('UPAVAS'),
             elevation: 0,
             centerTitle: true,
+            backgroundColor: Colors.green,
           ),
           body: (controller.hasData.isFalse)
               ? Center(
