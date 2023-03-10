@@ -144,7 +144,7 @@ class UpavaslistView extends GetView<UpavaslistController> {
                                 shrinkWrap: true,
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
+                                        crossAxisCount: 5,
                                         crossAxisSpacing: 5,
                                         mainAxisSpacing: 5),
                                 itemCount: controller.tempList.length,

@@ -141,7 +141,7 @@ class HomeView extends GetView<HomeController> {
                           shrinkWrap: true,
                           gridDelegate:
                           SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
+                              crossAxisCount: 5,
                               crossAxisSpacing: 5,
                               mainAxisSpacing: 5),
                           itemCount: controller.selectedList.length,
