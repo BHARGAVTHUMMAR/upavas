@@ -9,19 +9,16 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return Scaffold(
-          appBar: AppBar(
-            title: const Text('UPAVAS'),
-            elevation: 0,
-            centerTitle: true,
-            backgroundColor: Colors.green,
-          ),
-          body: (controller.hasData.isFalse)
-              ? Center(
+    return GetBuilder<HomeController>(
+        init: HomeController(),
+        builder: (context) {
+          return Obx(() {
+            return Scaffold(
+                body: (controller.hasData.isFalse)
+                    ? Center(
                   child: CircularProgressIndicator(),
                 )
-              : SingleChildScrollView(
+                    : SingleChildScrollView(
                   child: Column(
                     children: [
                       Row(
@@ -33,12 +30,12 @@ class HomeView extends GetView<HomeController> {
                               decoration: BoxDecoration(
                                   border: Border.all(),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(12))),
+                                  BorderRadius.all(Radius.circular(12))),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    controller.datePick(context: context);
+                                    controller.datePick(context: Get.context!);
                                   },
                                   child: Row(
                                     children: [
@@ -62,7 +59,7 @@ class HomeView extends GetView<HomeController> {
                               decoration: BoxDecoration(
                                   border: Border.all(),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(12))),
+                                  BorderRadius.all(Radius.circular(12))),
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     right: 10.0, left: 10),
@@ -73,7 +70,7 @@ class HomeView extends GetView<HomeController> {
                                       color: Colors.grey.shade500,
                                       fontWeight: FontWeight.w500),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(12)),
+                                  BorderRadius.all(Radius.circular(12)),
                                   icon: Padding(
                                     padding: EdgeInsets.only(left: 20.0),
                                     child: Icon(Icons.keyboard_arrow_down,
@@ -91,11 +88,11 @@ class HomeView extends GetView<HomeController> {
                                   items: controller.list
                                       .map<DropdownMenuItem<String>>(
                                           (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList(),
                                 ),
                               ),
                             ),
@@ -123,8 +120,8 @@ class HomeView extends GetView<HomeController> {
                                 Text(
                                   controller.selectedList
                                       .where((element) {
-                                        return element.isSelected.isFalse;
-                                      })
+                                    return element.isSelected.isFalse;
+                                  })
                                       .toList()
                                       .length
                                       .toString(),
@@ -143,10 +140,10 @@ class HomeView extends GetView<HomeController> {
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  crossAxisSpacing: 5,
-                                  mainAxisSpacing: 5),
+                          SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              crossAxisSpacing: 5,
+                              mainAxisSpacing: 5),
                           itemCount: controller.selectedList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
@@ -155,11 +152,11 @@ class HomeView extends GetView<HomeController> {
                                     .toggle();
                                 await FirebaseService()
                                     .updateUserDataToFireStore(
-                                        date: controller.selectedDate.value +
-                                            "_" +
-                                            controller.dropdownValue.value
-                                                .toString(),
-                                        data: {
+                                    date: controller.selectedDate.value +
+                                        "_" +
+                                        controller.dropdownValue.value
+                                            .toString(),
+                                    data: {
                                       "data": controller.selectedList
                                           .map((e) => e.toJson())
                                           .toList()
@@ -170,16 +167,16 @@ class HomeView extends GetView<HomeController> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: (controller.selectedList[index]
-                                              .isSelected.isFalse)
+                                          .isSelected.isFalse)
                                           ? Colors.green
                                           : Colors.grey,
                                     ),
                                     child: Center(
                                         child: Text(
-                                      index.toString(),
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    )));
+                                          index.toString(),
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 20),
+                                        )));
                               }),
                             );
                           },
@@ -188,6 +185,9 @@ class HomeView extends GetView<HomeController> {
                     ],
                   ),
                 ));
-    });
+          });
+        }
+    );
+
   }
 }
