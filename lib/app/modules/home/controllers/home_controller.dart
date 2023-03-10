@@ -32,12 +32,7 @@ class HomeController extends GetxController {
     if (getDataList.length <= 0) {
       await FirebaseService().addUserDataToFireStore(
           date: selectedDate.value + "_" + dropdownValue.value.toString(),
-          data: {
-            "data": List.generate(
-                    100, (index) => SelectedModels(isSelected: false.obs))
-                .map((e) => e.toJson())
-                .toList()
-          });
+          data: {"data": selectedList.map((e) => e.toJson()).toList()});
       selectedList.clear();
       selectedList.addAll(
           List.generate(100, (index) => SelectedModels(isSelected: false.obs)));
