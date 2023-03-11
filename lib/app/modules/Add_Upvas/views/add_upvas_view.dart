@@ -140,6 +140,105 @@ class AddUpvasView extends GetView<AddUpvasController> {
                     )
                   ],
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Time"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            controller.isFullDaySelected.value = false;
+                            controller.isSavarSelected.value = true;
+                            controller.isSanjSelected.value = false;
+                          },
+                          child: Row(
+                            children: [
+                              (controller.isSavarSelected.isTrue)
+                                  ? Image.asset(
+                                      "assets/icons_image/CheckBox.png",
+                                      height: 20)
+                                  : Image.asset("assets/icons_image/box.png",
+                                      height: 20),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("Savar"),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            controller.isFullDaySelected.value = false;
+                            controller.isSavarSelected.value = false;
+                            controller.isSanjSelected.value = true;
+                          },
+                          child: Row(
+                            children: [
+                              (controller.isSanjSelected.isTrue)
+                                  ? Image.asset(
+                                      "assets/icons_image/CheckBox.png",
+                                      height: 20)
+                                  : Image.asset("assets/icons_image/box.png",
+                                      height: 20),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("Sanj"),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            controller.isFullDaySelected.value = true;
+                            controller.isSavarSelected.value = false;
+                            controller.isSanjSelected.value = false;
+                          },
+                          child: Row(
+                            children: [
+                              (controller.isFullDaySelected.isTrue)
+                                  ? Image.asset(
+                                      "assets/icons_image/CheckBox.png",
+                                      height: 20)
+                                  : Image.asset("assets/icons_image/box.png",
+                                      height: 20),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("Full Day"),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 80),
+              Container(
+                decoration: BoxDecoration(
+                    color: appTheme.primaryTheme,
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
+                height: 50,
+                width: 140,
+                child: Center(
+                  child: Text(
+                    "Save",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                ),
               )
             ]),
             Positioned(

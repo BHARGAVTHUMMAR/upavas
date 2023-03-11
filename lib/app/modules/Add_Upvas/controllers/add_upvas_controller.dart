@@ -4,7 +4,9 @@ import 'package:intl/intl.dart';
 
 class AddUpvasController extends GetxController {
   RxString selectedDate = "".obs;
-
+RxBool isSavarSelected = false.obs;
+RxBool isSanjSelected = false.obs;
+RxBool isFullDaySelected = false.obs;
   RxList list = List.generate(
     100,
     (index) {
