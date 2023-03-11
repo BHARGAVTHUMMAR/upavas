@@ -6,6 +6,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const MAINHOME = _Paths.MAINHOME;
   static const UPAVASLIST = _Paths.UPAVASLIST;
+  static const ADD_UPVAS = _Paths.ADD_UPVAS;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const MAINHOME = '/mainhome';
   static const UPAVASLIST = '/upavaslist';
+  static const ADD_UPVAS = '/add-upvas';
 }

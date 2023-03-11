@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/Add_Upvas/bindings/add_upvas_binding.dart';
+import '../modules/Add_Upvas/views/add_upvas_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/mainhome/bindings/mainhome_binding.dart';
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.UPAVASLIST,
       page: () => const UpavaslistView(),
       binding: UpavaslistBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_UPVAS,
+      page: () => const AddUpvasView(),
+      binding: AddUpvasBinding(),
     ),
   ];
 }
