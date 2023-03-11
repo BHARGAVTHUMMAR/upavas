@@ -17,6 +17,7 @@ void main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'JosefinSans'),
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,

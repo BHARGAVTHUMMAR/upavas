@@ -17,7 +17,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     selectedDate.value =
-        DateFormat('dd-MM-yyyy').format(DateTime.now()).toString();
+        DateFormat('dd/MM/yyyy').format(DateTime.now()).toString();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       data();
     });
@@ -51,7 +51,7 @@ class HomeController extends GetxController {
         lastDate: DateTime(2100));
     if (pickedDate != null) {
       print(pickedDate);
-      selectedDate.value = DateFormat('dd-MM-yyyy').format(pickedDate);
+      selectedDate.value = DateFormat('dd/MM/yyyy').format(pickedDate);
       data();
     } else {}
   }

@@ -20,6 +20,15 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter: 
+flutter:
+  fonts:
+    - family: JosefinSans
+      fonts:
+        - asset: assets/font_family/JosefinSans-Regular.ttf
   uses-material-design: true
+
+  assets:
+    - assets/icons_image/
+
+
 

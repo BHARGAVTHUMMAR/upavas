@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:upvas/app/constants/sizeConstant.dart';
 
 class BaseTheme {
-  Color get primaryTheme => Colors.blue;
-  Color get textGrayColor => fromHex("#f1f1f1");
-  Color get primary => Color(0xff191245);
-  Color get secondoryColor => Color(0xffF99D1E);
-  Color get borderGrayColor => Color(0xFFD9D9D9);
-  Color get textGrayHintColor => Color(0xFF646464).withOpacity(0.6);
-  Color get backgroungGray => Color(0xFFF1F1F1);
+  Color get primaryTheme => fromHex("#881618");
+  Color get textGrayColor => fromHex("#AFB1C0");
+  Color get unSelectedColor => fromHex("#EAEAEC");
+  Color get SelectedColor => fromHex("#00AB55");
 
   List<BoxShadow> get getShadow {
     return [

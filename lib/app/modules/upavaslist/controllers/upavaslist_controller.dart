@@ -19,12 +19,13 @@ class UpavaslistController extends GetxController {
   @override
   void onInit() {
     selectedDate.value =
-        DateFormat('dd-MM-yyyy').format(DateTime.now()).toString();
+        DateFormat('dd/MM/yyyy').format(DateTime.now()).toString();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       data();
     });
     super.onInit();
   }
+
   data() async {
     hasData.value = false;
     getDataList.value = await FirebaseService().getUserData(
@@ -32,17 +33,13 @@ class UpavaslistController extends GetxController {
         context: Get.context!);
     hasData.value = true;
     tempList.clear();
-    if(!isNullEmptyOrFalse(getDataList))
-      {
-        for(int i=0;i<getDataList.length;i++)
-          {
-            if(getDataList[i].isSelected.isTrue)
-              {
-                tempList.add(i);
-              }
-          }
+    if (!isNullEmptyOrFalse(getDataList)) {
+      for (int i = 0; i < getDataList.length; i++) {
+        if (getDataList[i].isSelected.isTrue) {
+          tempList.add(i);
+        }
       }
-
+    }
   }
 
   datePick({required BuildContext context}) async {
@@ -53,7 +50,7 @@ class UpavaslistController extends GetxController {
         lastDate: DateTime(2100));
     if (pickedDate != null) {
       print(pickedDate);
-      selectedDate.value = DateFormat('dd-MM-yyyy').format(pickedDate);
+      selectedDate.value = DateFormat('dd/MM/yyyy').format(pickedDate);
       data();
     } else {}
   }
@@ -67,5 +64,4 @@ class UpavaslistController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
 }
