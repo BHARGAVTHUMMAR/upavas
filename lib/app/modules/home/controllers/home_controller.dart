@@ -45,10 +45,28 @@ class HomeController extends GetxController {
 
   datePick({required BuildContext context}) async {
     DateTime? pickedDate = await showDatePicker(
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: Colors.amberAccent, // <-- SEE HERE
+                onPrimary: Color(0xffF02E65), // <-- SEE HERE
+                onSurface: Color.fromARGB(255, 66, 125, 145), // <-- SEE HERE
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: Colors.red, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        },
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(1950),
         lastDate: DateTime(2100));
+
     if (pickedDate != null) {
       print(pickedDate);
       selectedDate.value = DateFormat('dd/MM/yyyy').format(pickedDate);
