@@ -180,10 +180,8 @@ class UpavaslistView extends GetWidget<UpavaslistController> {
                                                           .unSelectedColor),
                                                   child: Center(
                                                       child: Text(
-                                                    (controller.tempList[
-                                                                index] +
-                                                            1)
-                                                        .toString(),
+                                                    controller.tempList[
+                                                                index].toString(),
                                                     style: TextStyle(
                                                         color: appTheme
                                                             .textGrayColor,

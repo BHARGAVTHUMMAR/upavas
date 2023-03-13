@@ -46,7 +46,7 @@ class UpavaslistController extends GetxController {
     if (!isNullEmptyOrFalse(getDataList)) {
       for (int i = 0; i < getDataList.length; i++) {
         if (getDataList[i].isSelected.isTrue) {
-          tempList.add(i);
+          tempList.add(getDataList[i].Name);
         }
       }
     }

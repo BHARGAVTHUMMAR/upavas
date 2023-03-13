@@ -162,7 +162,8 @@ class HomeView extends GetWidget<HomeController> {
                                         crossAxisCount: 5,
                                         crossAxisSpacing: 5,
                                         mainAxisSpacing: 5),
-                                itemCount: controller.selectedList.length,
+                                itemCount: controller.
+                                selectedList.length,
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () async {
@@ -188,7 +189,7 @@ class HomeView extends GetWidget<HomeController> {
                                           ),
                                           child: Center(
                                               child: Text(
-                                            (index + 1).toString(),
+                                            controller.selectedList[index].Name.toString(),
                                             style: TextStyle(
                                                 color: (controller
                                                         .selectedList[index]
