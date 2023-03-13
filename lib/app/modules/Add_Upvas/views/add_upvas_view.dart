@@ -263,7 +263,7 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                               .isSelected
                               .value = true;
                           box.write(controller.selectedDataDate.value + "Savar",
-                              list.map((e) => e.toJson()));
+                              jsonEncode(list.map((e) => e.toJson())));
                         } else if (controller.getSelectedText() == "Sanj") {
                           List<SelectedModels> list = await ((jsonDecode(box
                                       .read(controller.selectedDataDate.value +
@@ -275,7 +275,7 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                               .isSelected
                               .value = true;
                           box.write(controller.selectedDataDate.value + "Sanj",
-                              list.map((e) => e.toJson()));
+                              jsonEncode(list.map((e) => e.toJson())));
                         } else {
                           List<SelectedModels> list = await ((jsonDecode(box
                                       .read(controller.selectedDataDate.value +
