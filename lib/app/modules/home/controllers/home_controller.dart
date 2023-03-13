@@ -1,7 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:upvas/app/constants/color_constant.dart';
 import 'package:upvas/app/service/firebase_service.dart';
+
+import '../../../../main.dart';
+import '../../../constants/sizeConstant.dart';
 
 class HomeController extends GetxController {
   RxString selectedDate = "".obs;
@@ -26,13 +32,18 @@ class HomeController extends GetxController {
 
   data() async {
     hasData.value = false;
-    getDataList.value = await FirebaseService().getUserData(
-        date: selectedDate.value + "_" + dropdownValue.value.toString(),
-        context: Get.context!);
+    if (!isNullEmptyOrFalse(
+        box.read(selectedDate.value + dropdownValue.value))) {
+      getDataList.value =
+          ((jsonDecode(box.read(selectedDate.value + dropdownValue.value))
+                      as List<dynamic>)
+                  .toList())
+              .map((e) => SelectedModels.fromJson(e))
+              .toList();
+    }
     if (getDataList.length <= 0) {
-      await FirebaseService().addUserDataToFireStore(
-          date: selectedDate.value + "_" + dropdownValue.value.toString(),
-          data: {"data": selectedList.map((e) => e.toJson()).toList()});
+      box.write(selectedDate.value + dropdownValue.value,
+          jsonEncode(selectedList.map((e) => e.toJson()).toList()));
       selectedList.clear();
       selectedList.addAll(
           List.generate(100, (index) => SelectedModels(isSelected: false.obs)));
@@ -49,13 +60,13 @@ class HomeController extends GetxController {
           return Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                primary: Colors.amberAccent, // <-- SEE HERE
-                onPrimary: Color(0xffF02E65), // <-- SEE HERE
+                primary: appTheme.SelectedColor, // <-- SEE HERE
+                onPrimary: appTheme.primaryTheme, // <-- SEE HERE
                 onSurface: Color.fromARGB(255, 66, 125, 145), // <-- SEE HERE
               ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  primary: Colors.red, // button text color
+                  primary: appTheme.textGrayColor, // button text color
                 ),
               ),
             ),

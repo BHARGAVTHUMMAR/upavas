@@ -1,18 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:upvas/app/constants/color_constant.dart';
+import '../../../../main.dart';
 import '../../../service/firebase_service.dart';
 import '../controllers/home_controller.dart';
 
-class HomeView extends GetView<HomeController> {
+class HomeView extends GetWidget<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
         init: HomeController(),
-        builder: (context) {
+        builder: (controller) {
           return Obx(() {
             return Scaffold(
                 body: (controller.hasData.isFalse)
@@ -165,18 +168,12 @@ class HomeView extends GetView<HomeController> {
                                     onTap: () async {
                                       controller.selectedList[index].isSelected
                                           .toggle();
-                                      await FirebaseService()
-                                          .updateUserDataToFireStore(
-                                              date: controller
-                                                      .selectedDate.value +
-                                                  "_" +
-                                                  controller.dropdownValue.value
-                                                      .toString(),
-                                              data: {
-                                            "data": controller.selectedList
-                                                .map((e) => e.toJson())
-                                                .toList()
-                                          });
+                                      box.write(
+                                          controller.selectedDate.value +
+                                              controller.dropdownValue.value,
+                                          jsonEncode(controller.selectedList
+                                              .map((e) => e.toJson())
+                                              .toList()));
                                     },
                                     child: Obx(() {
                                       return Container(

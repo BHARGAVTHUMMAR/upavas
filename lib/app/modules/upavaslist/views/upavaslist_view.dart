@@ -7,13 +7,13 @@ import 'package:upvas/app/routes/app_pages.dart';
 
 import '../controllers/upavaslist_controller.dart';
 
-class UpavaslistView extends GetView<UpavaslistController> {
+class UpavaslistView extends GetWidget<UpavaslistController> {
   const UpavaslistView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GetBuilder<UpavaslistController>(
         init: UpavaslistController(),
-        builder: (context) {
+        builder: (controller) {
           return Obx(() {
             return Scaffold(
                 body: (controller.hasData.isFalse)

@@ -7,7 +7,7 @@ import 'package:upvas/app/modules/upavaslist/views/upavaslist_view.dart';
 
 import '../controllers/mainhome_controller.dart';
 
-class MainhomeView extends GetView<MainhomeController> {
+class MainhomeView extends GetWidget<MainhomeController> {
   const MainhomeView({Key? key}) : super(key: key);
 
   @override
