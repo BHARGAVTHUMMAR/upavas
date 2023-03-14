@@ -88,7 +88,7 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                                         BorderRadius.all(Radius.circular(12)),
                                     icon: Padding(
                                       padding:
-                                          EdgeInsets.only(left: 55.0, right: 0),
+                                          EdgeInsets.only(left: 45.0, right: 0),
                                       child: Image.asset(
                                           "assets/icons_image/down.png",
                                           height: 25),
@@ -104,7 +104,7 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                                         .map<DropdownMenuItem<String>>((value) {
                                       return DropdownMenuItem<String>(
                                         value: value.toString(),
-                                        child: Text((value + 1).toString()),
+                                        child: Text((value).toString()),
                                       );
                                     }).toList(),
                                   ),
@@ -262,9 +262,13 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
-                          list[int.parse(controller.dropdownValue.value)]
-                              .isSelected
-                              .value = true;
+                          list.forEach((element) {
+                            if (element.Name.value ==
+                                controller.dropdownValue.value) {
+                              element.isSelected.value = true;
+                            }
+                          });
+
                           box.write(
                               controller.selectedDataDate.value +
                                   ArgumentConstant.savar,
@@ -278,9 +282,12 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
-                          list[int.parse(controller.dropdownValue.value)]
-                              .isSelected
-                              .value = true;
+                          list.forEach((element) {
+                            if (element.Name.value ==
+                                controller.dropdownValue.value) {
+                              element.isSelected.value = true;
+                            }
+                          });
                           box.write(
                               controller.selectedDataDate.value +
                                   ArgumentConstant.Sanj,
@@ -301,12 +308,18 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
-                          list[int.parse(controller.dropdownValue.value)]
-                              .isSelected
-                              .value = true;
-                          listSavar[int.parse(controller.dropdownValue.value)]
-                              .isSelected
-                              .value = true;
+                          list.forEach((element) {
+                            if (element.Name.value ==
+                                controller.dropdownValue.value) {
+                              element.isSelected.value = true;
+                            }
+                          });
+                          listSavar.forEach((element) {
+                            if (element.Name.value ==
+                                controller.dropdownValue.value) {
+                              element.isSelected.value = true;
+                            }
+                          });
                           box.write(
                               controller.selectedDataDate.value +
                                   ArgumentConstant.Sanj,
