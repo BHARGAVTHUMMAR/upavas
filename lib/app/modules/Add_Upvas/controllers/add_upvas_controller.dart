@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../main.dart';
+import '../../../constants/app_constant.dart';
 import '../../../constants/sizeConstant.dart';
 import '../../home/controllers/home_controller.dart';
 
@@ -34,19 +35,20 @@ class AddUpvasController extends GetxController {
     list.clear();
     await Future.delayed(Duration(milliseconds: 50));
 
-    if (getSelectedText() == "Full") {
+    if (getSelectedText() == ArgumentConstant.full) {
       RxList<SelectedModels> getDataListSavar = RxList<SelectedModels>([]);
       RxList<SelectedModels> getDataListSanj = RxList<SelectedModels>([]);
-      if (!isNullEmptyOrFalse(box.read(selectedDataDate.value + "Savar"))) {
-        getDataListSavar.value =
-            ((jsonDecode(box.read(selectedDataDate.value + "Savar"))
-                        as List<dynamic>)
-                    .toList())
-                .map((e) => SelectedModels.fromJson(e))
-                .toList();
+      if (!isNullEmptyOrFalse(
+          box.read(selectedDataDate.value + ArgumentConstant.savar))) {
+        getDataListSavar.value = ((jsonDecode(box
+                        .read(selectedDataDate.value + ArgumentConstant.savar))
+                    as List<dynamic>)
+                .toList())
+            .map((e) => SelectedModels.fromJson(e))
+            .toList();
       } else {
         box.write(
-            selectedDataDate.value + "Savar",
+            selectedDataDate.value + ArgumentConstant.savar,
             jsonEncode(RxList<SelectedModels>([
               SelectedModels(Name: "1".obs, isSelected: false.obs),
               SelectedModels(Name: "2".obs, isSelected: false.obs),
@@ -132,25 +134,28 @@ class AddUpvasController extends GetxController {
               SelectedModels(Name: "S7".obs, isSelected: false.obs),
               SelectedModels(Name: "S8".obs, isSelected: false.obs),
               SelectedModels(Name: "S9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C1".obs, isSelected: false.obs),
-              SelectedModels(Name: "C2".obs, isSelected: false.obs),
-              SelectedModels(Name: "C3".obs, isSelected: false.obs),
-              SelectedModels(Name: "C4".obs, isSelected: false.obs),
-              SelectedModels(Name: "C5".obs, isSelected: false.obs),
-              SelectedModels(Name: "C6".obs, isSelected: false.obs),
-              SelectedModels(Name: "C7".obs, isSelected: false.obs),
-              SelectedModels(Name: "C9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C10".obs, isSelected: false.obs),
-              SelectedModels(Name: "D1".obs, isSelected: false.obs),
-              SelectedModels(Name: "D2".obs, isSelected: false.obs),
-              SelectedModels(Name: "D3".obs, isSelected: false.obs),
-              SelectedModels(Name: "D4".obs, isSelected: false.obs),
-              SelectedModels(Name: "D5".obs, isSelected: false.obs),
-              SelectedModels(Name: "D6".obs, isSelected: false.obs),
-              SelectedModels(Name: "D7".obs, isSelected: false.obs),
-            ])
-                .map((e) => e.toJson())
-                .toList()));
+              SelectedModels(Name: "S10".obs, isSelected: false.obs),
+              SelectedModels(Name: "S11".obs, isSelected: false.obs),
+              SelectedModels(Name: "S12".obs, isSelected: false.obs),
+              SelectedModels(Name: "S13".obs, isSelected: false.obs),
+              SelectedModels(Name: "S14".obs, isSelected: false.obs),
+              SelectedModels(Name: "S15".obs, isSelected: false.obs),
+              SelectedModels(Name: "S16".obs, isSelected: false.obs),
+              SelectedModels(Name: "S17".obs, isSelected: false.obs),
+              SelectedModels(Name: "M18".obs, isSelected: false.obs),
+              SelectedModels(Name: "M19".obs, isSelected: false.obs),
+              SelectedModels(Name: "M20".obs, isSelected: false.obs),
+              SelectedModels(Name: "M21".obs, isSelected: false.obs),
+              SelectedModels(Name: "M22".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE1".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE2".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE3".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE4".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE5".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE6".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE7".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE8".obs, isSelected: false.obs),
+            ]).map((e) => e.toJson()).toList()));
         getDataListSavar.value = RxList<SelectedModels>([
           SelectedModels(Name: "1".obs, isSelected: false.obs),
           SelectedModels(Name: "2".obs, isSelected: false.obs),
@@ -236,34 +241,40 @@ class AddUpvasController extends GetxController {
           SelectedModels(Name: "S7".obs, isSelected: false.obs),
           SelectedModels(Name: "S8".obs, isSelected: false.obs),
           SelectedModels(Name: "S9".obs, isSelected: false.obs),
-          SelectedModels(Name: "C1".obs, isSelected: false.obs),
-          SelectedModels(Name: "C2".obs, isSelected: false.obs),
-          SelectedModels(Name: "C3".obs, isSelected: false.obs),
-          SelectedModels(Name: "C4".obs, isSelected: false.obs),
-          SelectedModels(Name: "C5".obs, isSelected: false.obs),
-          SelectedModels(Name: "C6".obs, isSelected: false.obs),
-          SelectedModels(Name: "C7".obs, isSelected: false.obs),
-          SelectedModels(Name: "C9".obs, isSelected: false.obs),
-          SelectedModels(Name: "C10".obs, isSelected: false.obs),
-          SelectedModels(Name: "D1".obs, isSelected: false.obs),
-          SelectedModels(Name: "D2".obs, isSelected: false.obs),
-          SelectedModels(Name: "D3".obs, isSelected: false.obs),
-          SelectedModels(Name: "D4".obs, isSelected: false.obs),
-          SelectedModels(Name: "D5".obs, isSelected: false.obs),
-          SelectedModels(Name: "D6".obs, isSelected: false.obs),
-          SelectedModels(Name: "D7".obs, isSelected: false.obs),
+          SelectedModels(Name: "S10".obs, isSelected: false.obs),
+          SelectedModels(Name: "S11".obs, isSelected: false.obs),
+          SelectedModels(Name: "S12".obs, isSelected: false.obs),
+          SelectedModels(Name: "S13".obs, isSelected: false.obs),
+          SelectedModels(Name: "S14".obs, isSelected: false.obs),
+          SelectedModels(Name: "S15".obs, isSelected: false.obs),
+          SelectedModels(Name: "S16".obs, isSelected: false.obs),
+          SelectedModels(Name: "S17".obs, isSelected: false.obs),
+          SelectedModels(Name: "M18".obs, isSelected: false.obs),
+          SelectedModels(Name: "M19".obs, isSelected: false.obs),
+          SelectedModels(Name: "M20".obs, isSelected: false.obs),
+          SelectedModels(Name: "M21".obs, isSelected: false.obs),
+          SelectedModels(Name: "M22".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE1".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE2".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE3".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE4".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE5".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE6".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE7".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE8".obs, isSelected: false.obs),
         ]);
       }
-      if (!isNullEmptyOrFalse(box.read(selectedDataDate.value + "Sanj"))) {
-        getDataListSanj.value =
-            ((jsonDecode(box.read(selectedDataDate.value + "Sanj"))
-                        as List<dynamic>)
-                    .toList())
-                .map((e) => SelectedModels.fromJson(e))
-                .toList();
+      if (!isNullEmptyOrFalse(
+          box.read(selectedDataDate.value + ArgumentConstant.Sanj))) {
+        getDataListSanj.value = ((jsonDecode(box
+                        .read(selectedDataDate.value + ArgumentConstant.Sanj))
+                    as List<dynamic>)
+                .toList())
+            .map((e) => SelectedModels.fromJson(e))
+            .toList();
       } else {
         box.write(
-            selectedDataDate.value + "Sanj",
+            selectedDataDate.value + ArgumentConstant.Sanj,
             jsonEncode(RxList<SelectedModels>([
               SelectedModels(Name: "1".obs, isSelected: false.obs),
               SelectedModels(Name: "2".obs, isSelected: false.obs),
@@ -349,25 +360,28 @@ class AddUpvasController extends GetxController {
               SelectedModels(Name: "S7".obs, isSelected: false.obs),
               SelectedModels(Name: "S8".obs, isSelected: false.obs),
               SelectedModels(Name: "S9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C1".obs, isSelected: false.obs),
-              SelectedModels(Name: "C2".obs, isSelected: false.obs),
-              SelectedModels(Name: "C3".obs, isSelected: false.obs),
-              SelectedModels(Name: "C4".obs, isSelected: false.obs),
-              SelectedModels(Name: "C5".obs, isSelected: false.obs),
-              SelectedModels(Name: "C6".obs, isSelected: false.obs),
-              SelectedModels(Name: "C7".obs, isSelected: false.obs),
-              SelectedModels(Name: "C9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C10".obs, isSelected: false.obs),
-              SelectedModels(Name: "D1".obs, isSelected: false.obs),
-              SelectedModels(Name: "D2".obs, isSelected: false.obs),
-              SelectedModels(Name: "D3".obs, isSelected: false.obs),
-              SelectedModels(Name: "D4".obs, isSelected: false.obs),
-              SelectedModels(Name: "D5".obs, isSelected: false.obs),
-              SelectedModels(Name: "D6".obs, isSelected: false.obs),
-              SelectedModels(Name: "D7".obs, isSelected: false.obs),
-            ])
-                .map((e) => e.toJson())
-                .toList()));
+              SelectedModels(Name: "S10".obs, isSelected: false.obs),
+              SelectedModels(Name: "S11".obs, isSelected: false.obs),
+              SelectedModels(Name: "S12".obs, isSelected: false.obs),
+              SelectedModels(Name: "S13".obs, isSelected: false.obs),
+              SelectedModels(Name: "S14".obs, isSelected: false.obs),
+              SelectedModels(Name: "S15".obs, isSelected: false.obs),
+              SelectedModels(Name: "S16".obs, isSelected: false.obs),
+              SelectedModels(Name: "S17".obs, isSelected: false.obs),
+              SelectedModels(Name: "M18".obs, isSelected: false.obs),
+              SelectedModels(Name: "M19".obs, isSelected: false.obs),
+              SelectedModels(Name: "M20".obs, isSelected: false.obs),
+              SelectedModels(Name: "M21".obs, isSelected: false.obs),
+              SelectedModels(Name: "M22".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE1".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE2".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE3".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE4".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE5".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE6".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE7".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE8".obs, isSelected: false.obs),
+            ]).map((e) => e.toJson()).toList()));
         getDataListSanj.value = RxList<SelectedModels>([
           SelectedModels(Name: "1".obs, isSelected: false.obs),
           SelectedModels(Name: "2".obs, isSelected: false.obs),
@@ -453,22 +467,27 @@ class AddUpvasController extends GetxController {
           SelectedModels(Name: "S7".obs, isSelected: false.obs),
           SelectedModels(Name: "S8".obs, isSelected: false.obs),
           SelectedModels(Name: "S9".obs, isSelected: false.obs),
-          SelectedModels(Name: "C1".obs, isSelected: false.obs),
-          SelectedModels(Name: "C2".obs, isSelected: false.obs),
-          SelectedModels(Name: "C3".obs, isSelected: false.obs),
-          SelectedModels(Name: "C4".obs, isSelected: false.obs),
-          SelectedModels(Name: "C5".obs, isSelected: false.obs),
-          SelectedModels(Name: "C6".obs, isSelected: false.obs),
-          SelectedModels(Name: "C7".obs, isSelected: false.obs),
-          SelectedModels(Name: "C9".obs, isSelected: false.obs),
-          SelectedModels(Name: "C10".obs, isSelected: false.obs),
-          SelectedModels(Name: "D1".obs, isSelected: false.obs),
-          SelectedModels(Name: "D2".obs, isSelected: false.obs),
-          SelectedModels(Name: "D3".obs, isSelected: false.obs),
-          SelectedModels(Name: "D4".obs, isSelected: false.obs),
-          SelectedModels(Name: "D5".obs, isSelected: false.obs),
-          SelectedModels(Name: "D6".obs, isSelected: false.obs),
-          SelectedModels(Name: "D7".obs, isSelected: false.obs),
+          SelectedModels(Name: "S10".obs, isSelected: false.obs),
+          SelectedModels(Name: "S11".obs, isSelected: false.obs),
+          SelectedModels(Name: "S12".obs, isSelected: false.obs),
+          SelectedModels(Name: "S13".obs, isSelected: false.obs),
+          SelectedModels(Name: "S14".obs, isSelected: false.obs),
+          SelectedModels(Name: "S15".obs, isSelected: false.obs),
+          SelectedModels(Name: "S16".obs, isSelected: false.obs),
+          SelectedModels(Name: "S17".obs, isSelected: false.obs),
+          SelectedModels(Name: "M18".obs, isSelected: false.obs),
+          SelectedModels(Name: "M19".obs, isSelected: false.obs),
+          SelectedModels(Name: "M20".obs, isSelected: false.obs),
+          SelectedModels(Name: "M21".obs, isSelected: false.obs),
+          SelectedModels(Name: "M22".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE1".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE2".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE3".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE4".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE5".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE6".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE7".obs, isSelected: false.obs),
+          SelectedModels(Name: "SE8".obs, isSelected: false.obs),
         ]);
       }
       for (int i = 0; i < getDataListSanj.length; i++) {
@@ -582,29 +601,32 @@ class AddUpvasController extends GetxController {
               SelectedModels(Name: "S7".obs, isSelected: false.obs),
               SelectedModels(Name: "S8".obs, isSelected: false.obs),
               SelectedModels(Name: "S9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C1".obs, isSelected: false.obs),
-              SelectedModels(Name: "C2".obs, isSelected: false.obs),
-              SelectedModels(Name: "C3".obs, isSelected: false.obs),
-              SelectedModels(Name: "C4".obs, isSelected: false.obs),
-              SelectedModels(Name: "C5".obs, isSelected: false.obs),
-              SelectedModels(Name: "C6".obs, isSelected: false.obs),
-              SelectedModels(Name: "C7".obs, isSelected: false.obs),
-              SelectedModels(Name: "C9".obs, isSelected: false.obs),
-              SelectedModels(Name: "C10".obs, isSelected: false.obs),
-              SelectedModels(Name: "D1".obs, isSelected: false.obs),
-              SelectedModels(Name: "D2".obs, isSelected: false.obs),
-              SelectedModels(Name: "D3".obs, isSelected: false.obs),
-              SelectedModels(Name: "D4".obs, isSelected: false.obs),
-              SelectedModels(Name: "D5".obs, isSelected: false.obs),
-              SelectedModels(Name: "D6".obs, isSelected: false.obs),
-              SelectedModels(Name: "D7".obs, isSelected: false.obs),
-            ])
-                .map((e) => e.toJson())
-                .toList()));
+              SelectedModels(Name: "S10".obs, isSelected: false.obs),
+              SelectedModels(Name: "S11".obs, isSelected: false.obs),
+              SelectedModels(Name: "S12".obs, isSelected: false.obs),
+              SelectedModels(Name: "S13".obs, isSelected: false.obs),
+              SelectedModels(Name: "S14".obs, isSelected: false.obs),
+              SelectedModels(Name: "S15".obs, isSelected: false.obs),
+              SelectedModels(Name: "S16".obs, isSelected: false.obs),
+              SelectedModels(Name: "S17".obs, isSelected: false.obs),
+              SelectedModels(Name: "M18".obs, isSelected: false.obs),
+              SelectedModels(Name: "M19".obs, isSelected: false.obs),
+              SelectedModels(Name: "M20".obs, isSelected: false.obs),
+              SelectedModels(Name: "M21".obs, isSelected: false.obs),
+              SelectedModels(Name: "M22".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE1".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE2".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE3".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE4".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE5".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE6".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE7".obs, isSelected: false.obs),
+              SelectedModels(Name: "SE8".obs, isSelected: false.obs),
+            ]).map((e) => e.toJson()).toList()));
         list.clear();
 
         list.addAll(List.generate(
-          100,
+          105,
           (index) {
             return index;
           },

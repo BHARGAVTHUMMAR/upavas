@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:upvas/app/constants/app_constant.dart';
 import 'package:upvas/app/modules/home/controllers/home_controller.dart';
 import 'package:upvas/app/routes/app_pages.dart';
 
@@ -252,41 +253,51 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                     SizedBox(height: 80),
                     InkWell(
                       onTap: () async {
-                        if (controller.getSelectedText() == "Savar") {
+                        if (controller.getSelectedText() ==
+                            ArgumentConstant.savar) {
                           List<SelectedModels> list = await ((jsonDecode(box
                                       .read(controller.selectedDataDate.value +
-                                          "Savar")) as List<dynamic>)
+                                          ArgumentConstant
+                                              .savar)) as List<dynamic>)
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
                           list[int.parse(controller.dropdownValue.value)]
                               .isSelected
                               .value = true;
-                          box.write(controller.selectedDataDate.value + "Savar",
+                          box.write(
+                              controller.selectedDataDate.value +
+                                  ArgumentConstant.savar,
                               jsonEncode(list.map((e) => e.toJson()).toList()));
-                        } else if (controller.getSelectedText() == "Sanj") {
+                        } else if (controller.getSelectedText() ==
+                            ArgumentConstant.Sanj) {
                           List<SelectedModels> list = await ((jsonDecode(box
                                       .read(controller.selectedDataDate.value +
-                                          "Sanj")) as List<dynamic>)
+                                          ArgumentConstant
+                                              .Sanj)) as List<dynamic>)
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
                           list[int.parse(controller.dropdownValue.value)]
                               .isSelected
                               .value = true;
-                          box.write(controller.selectedDataDate.value + "Sanj",
+                          box.write(
+                              controller.selectedDataDate.value +
+                                  ArgumentConstant.Sanj,
                               jsonEncode(list.map((e) => e.toJson()).toList()));
                         } else {
                           List<SelectedModels> list = await ((jsonDecode(box
                                       .read(controller.selectedDataDate.value +
-                                          "Sanj")) as List<dynamic>)
+                                          ArgumentConstant
+                                              .Sanj)) as List<dynamic>)
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
                           List<SelectedModels> listSavar = await ((jsonDecode(
-                                      box.read(
-                                          controller.selectedDataDate.value +
-                                              "Savar")) as List<dynamic>)
+                                          box.read(controller
+                                                  .selectedDataDate.value +
+                                              ArgumentConstant.savar))
+                                      as List<dynamic>)
                                   .toList())
                               .map((e) => SelectedModels.fromJson(e))
                               .toList();
@@ -296,10 +307,13 @@ class AddUpvasView extends GetWidget<AddUpvasController> {
                           listSavar[int.parse(controller.dropdownValue.value)]
                               .isSelected
                               .value = true;
-                          box.write(controller.selectedDataDate.value + "Sanj",
+                          box.write(
+                              controller.selectedDataDate.value +
+                                  ArgumentConstant.Sanj,
                               jsonEncode(list.map((e) => e.toJson()).toList()));
                           box.write(
-                              controller.selectedDataDate.value + "Savar",
+                              controller.selectedDataDate.value +
+                                  ArgumentConstant.savar,
                               jsonEncode(
                                   listSavar.map((e) => e.toJson()).toList()));
                         }
