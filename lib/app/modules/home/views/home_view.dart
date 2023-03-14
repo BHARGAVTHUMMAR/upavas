@@ -154,54 +154,315 @@ class HomeView extends GetWidget<HomeController> {
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 5.0),
-                              child: GridView.builder(
-                                // physics: NeverScrollableScrollPhysics(),
-                                // shrinkWrap: true,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 5,
-                                        crossAxisSpacing: 5,
-                                        mainAxisSpacing: 5),
-                                itemCount: controller.
-                                selectedList.length,
-                                itemBuilder: (context, index) {
-                                  return InkWell(
-                                    onTap: () async {
-                                      controller.selectedList[index].isSelected
-                                          .toggle();
-                                      box.write(
-                                          controller.selectedDate.value +
-                                              controller.dropdownValue.value,
-                                          jsonEncode(controller.selectedList
-                                              .map((e) => e.toJson())
-                                              .toList()));
-                                    },
-                                    child: Obx(() {
-                                      return Container(
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: (controller
-                                                    .selectedList[index]
-                                                    .isSelected
-                                                    .isFalse)
-                                                ? appTheme.SelectedColor
-                                                : appTheme.unSelectedColor,
-                                          ),
-                                          child: Center(
-                                              child: Text(
-                                            controller.selectedList[index].Name.toString(),
-                                            style: TextStyle(
-                                                color: (controller
-                                                        .selectedList[index]
-                                                        .isSelected
-                                                        .isFalse)
-                                                    ? Colors.white
-                                                    : appTheme.textGrayColor,
-                                                fontSize: 20),
-                                          )));
-                                    }),
-                                  );
-                                },
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    GridView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 5,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5),
+                                      itemCount: 65,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () async {
+                                            controller
+                                                .selectedList[index].isSelected
+                                                .toggle();
+                                            box.write(
+                                                controller.selectedDate.value +
+                                                    controller
+                                                        .dropdownValue.value,
+                                                jsonEncode(controller
+                                                    .selectedList
+                                                    .map((e) => e.toJson())
+                                                    .toList()));
+                                          },
+                                          child: Obx(() {
+                                            return Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: (controller
+                                                          .selectedList[index]
+                                                          .isSelected
+                                                          .isFalse)
+                                                      ? appTheme.SelectedColor
+                                                      : appTheme
+                                                          .unSelectedColor,
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  controller
+                                                      .selectedList[index].Name
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      color: (controller
+                                                              .selectedList[
+                                                                  index]
+                                                              .isSelected
+                                                              .isFalse)
+                                                          ? Colors.white
+                                                          : appTheme
+                                                              .textGrayColor,
+                                                      fontSize: 20),
+                                                )));
+                                          }),
+                                        );
+                                      },
+                                    ),
+                                    Divider(
+                                        thickness: 2,
+                                        indent: 10,
+                                        endIndent: 10),
+                                    GridView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 5,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5),
+                                      itemCount: 10,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () async {
+                                            controller.selectedList[index + 65]
+                                                .isSelected
+                                                .toggle();
+                                            box.write(
+                                                controller.selectedDate.value +
+                                                    controller
+                                                        .dropdownValue.value,
+                                                jsonEncode(controller
+                                                    .selectedList
+                                                    .map((e) => e.toJson())
+                                                    .toList()));
+                                          },
+                                          child: Obx(() {
+                                            return Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: (controller
+                                                          .selectedList[
+                                                              index + 65]
+                                                          .isSelected
+                                                          .isFalse)
+                                                      ? appTheme.SelectedColor
+                                                      : appTheme
+                                                          .unSelectedColor,
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  controller
+                                                      .selectedList[index + 65]
+                                                      .Name
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      color: (controller
+                                                              .selectedList[
+                                                                  index + 65]
+                                                              .isSelected
+                                                              .isFalse)
+                                                          ? Colors.white
+                                                          : appTheme
+                                                              .textGrayColor,
+                                                      fontSize: 20),
+                                                )));
+                                          }),
+                                        );
+                                      },
+                                    ),
+                                    Divider(
+                                        thickness: 2,
+                                        indent: 10,
+                                        endIndent: 10),
+                                    GridView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 5,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5),
+                                      itemCount: 17,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () async {
+                                            controller.selectedList[index + 75]
+                                                .isSelected
+                                                .toggle();
+                                            box.write(
+                                                controller.selectedDate.value +
+                                                    controller
+                                                        .dropdownValue.value,
+                                                jsonEncode(controller
+                                                    .selectedList
+                                                    .map((e) => e.toJson())
+                                                    .toList()));
+                                          },
+                                          child: Obx(() {
+                                            return Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: (controller
+                                                          .selectedList[
+                                                              index + 75]
+                                                          .isSelected
+                                                          .isFalse)
+                                                      ? appTheme.SelectedColor
+                                                      : appTheme
+                                                          .unSelectedColor,
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  controller
+                                                      .selectedList[index + 75]
+                                                      .Name
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      color: (controller
+                                                              .selectedList[
+                                                                  index + 75]
+                                                              .isSelected
+                                                              .isFalse)
+                                                          ? Colors.white
+                                                          : appTheme
+                                                              .textGrayColor,
+                                                      fontSize: 20),
+                                                )));
+                                          }),
+                                        );
+                                      },
+                                    ),
+                                    Divider(
+                                        thickness: 2,
+                                        indent: 10,
+                                        endIndent: 10),
+                                    GridView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 5,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5),
+                                      itemCount: 5,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () async {
+                                            controller.selectedList[index + 92]
+                                                .isSelected
+                                                .toggle();
+                                            box.write(
+                                                controller.selectedDate.value +
+                                                    controller
+                                                        .dropdownValue.value,
+                                                jsonEncode(controller
+                                                    .selectedList
+                                                    .map((e) => e.toJson())
+                                                    .toList()));
+                                          },
+                                          child: Obx(() {
+                                            return Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: (controller
+                                                          .selectedList[
+                                                              index + 92]
+                                                          .isSelected
+                                                          .isFalse)
+                                                      ? appTheme.SelectedColor
+                                                      : appTheme
+                                                          .unSelectedColor,
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  controller
+                                                      .selectedList[index + 92]
+                                                      .Name
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      color: (controller
+                                                              .selectedList[
+                                                                  index + 92]
+                                                              .isSelected
+                                                              .isFalse)
+                                                          ? Colors.white
+                                                          : appTheme
+                                                              .textGrayColor,
+                                                      fontSize: 20),
+                                                )));
+                                          }),
+                                        );
+                                      },
+                                    ),
+                                    Divider(
+                                        thickness: 2,
+                                        indent: 10,
+                                        endIndent: 10),
+                                    GridView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 5,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5),
+                                      itemCount: 8,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () async {
+                                            controller.selectedList[index + 97]
+                                                .isSelected
+                                                .toggle();
+                                            box.write(
+                                                controller.selectedDate.value +
+                                                    controller
+                                                        .dropdownValue.value,
+                                                jsonEncode(controller
+                                                    .selectedList
+                                                    .map((e) => e.toJson())
+                                                    .toList()));
+                                          },
+                                          child: Obx(() {
+                                            return Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: (controller
+                                                          .selectedList[
+                                                              index + 97]
+                                                          .isSelected
+                                                          .isFalse)
+                                                      ? appTheme.SelectedColor
+                                                      : appTheme
+                                                          .unSelectedColor,
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  controller
+                                                      .selectedList[index + 97]
+                                                      .Name
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      color: (controller
+                                                              .selectedList[
+                                                                  index + 97]
+                                                              .isSelected
+                                                              .isFalse)
+                                                          ? Colors.white
+                                                          : appTheme
+                                                              .textGrayColor,
+                                                      fontSize: 20),
+                                                )));
+                                          }),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           )
